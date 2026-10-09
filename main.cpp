@@ -29,17 +29,31 @@ class Student
 	}
 };
 
-/*class Art_Student : class Student{
+class Art_Student : public Student{
+	//Emphasis derive
 	std::string art_emphasis;
+	
 	public:
 	Art_Student() : Student(), art_emphasis("Art Studio") {}
 
+	//Setter
+	void setArtEmphasis(std::string emphasis) { art_emphasis = emphasis; }
 
-       	
 
-}
+	//Check for emphasis if it those 3 values
+	void emphasisCheck(std::string empha){
+		if (empha == "Art Studio" || "Art History" || "Art Education")
+			art_emphasis = empha;
+		else
+			std::cout << "not valid emphasis for art student" << std::endl;
+	}
+	void printInfo() {
+		Student::printInfo();
+		std::cout << "Major Emphasis : " << art_emphasis << std::endl;	
+	}
+};
 
-class Physics_Student : class Student{
+/*class Physics_Student : class Student{
 }
 */
 
@@ -47,7 +61,7 @@ class Physics_Student : class Student{
 
 int main(){
 
-	Student s1;
+	Art_Student s1;
 	s1.setFirstName("Adrian");
 	s1.setLastName("Martinez");
 	s1.setGradYear(2025);
@@ -55,8 +69,10 @@ int main(){
 	s1.setEnrolledYear(2024);
 	s1.setEnrolledSemester("Fall");
 	s1.setStudentStatus("Undergrad");
-
+	s1.setArtEmphasis("Art History");
+	
 	s1.printInfo();
+	 
 	
 	return 0;
 }
