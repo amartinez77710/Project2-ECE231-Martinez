@@ -34,16 +34,12 @@ class Art_Student : public Student{
 	std::string art_emphasis;
 	
 	public:
-	Art_Student() : Student(), art_emphasis("Art Studio") {}
+	Art_Student() : Student(), art_emphasis("Placeholder") {}
 
 	//Setter
-	void setArtEmphasis(std::string emphasis) { art_emphasis = emphasis; }
-
-
-	//Check for emphasis if it those 3 values
-	void emphasisCheck(std::string empha){
-		if (empha == "Art Studio" || "Art History" || "Art Education")
-			art_emphasis = empha;
+	void setArtEmphasis(std::string emphasis){
+		if (emphasis == "Art Studio" || emphasis == "Art History" || emphasis == "Art Education")
+			art_emphasis = emphasis;
 		else
 			std::cout << "not valid emphasis for art student" << std::endl;
 	}
@@ -53,9 +49,27 @@ class Art_Student : public Student{
 	}
 };
 
-/*class Physics_Student : class Student{
-}
-*/
+class Physics_Student : public Student{
+	//Emphasis derive
+	std::string physics_concentration;
+
+	public:
+	Physics_Student() : Student(), physics_concentration("Placeholder") {}
+
+	//Setter
+	void setPhysicsConcentration(std::string concentration){
+		if (concentration == "Biophysics" || concentration == "Earth and Planetary Sciences")
+			physics_concentration = concentration;
+		else
+			std::cout << "not valid concentration for physics student" << std::endl;
+	}
+	//print
+	void printInfo(){
+		Student::printInfo();
+		std::cout << "Concentration: " << physics_concentration << std::endl;
+	}
+};
+
 
 
 
@@ -69,7 +83,7 @@ int main(){
 	s1.setEnrolledYear(2024);
 	s1.setEnrolledSemester("Fall");
 	s1.setStudentStatus("Undergrad");
-	s1.setArtEmphasis("Art History");
+	s1.setArtEmphasis("Art Studio");
 	
 	s1.printInfo();
 	 
