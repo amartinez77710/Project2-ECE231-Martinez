@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 class Student
 {
 	std::string firstName;
@@ -91,27 +92,58 @@ int main(){
 		physics_students.push_back(new Physics_Student);
 	}
 
-	//Assigning information to vectors
-	std::string artstudent_firstnames[5] = {"Adrian", "Matthew", "Caroline", "Asuka", "Carlos"};
+	//Assigning information to art vector
+	std::string artstudent_firstNames[5] = {"Adrian", "Matthew", "Caroline", "Asuka", "Carlos"};
 	float artstudent_gpa[5] = {3.9, 3.5, 3.2, 3.8, 4.0};
-	std::string artstudent_lastnames[5] = {"Martinez", "Johnson", "Whethers", "Tano", "Garcia"};
-	std::string artstudent_gradsemesters[5] = {"Spring", "Spring", "Spring", "Spring", "Spring"};
-	int artstudent_gradyears[5] = {2027, 2028, 2029, 2026, 2027};
-	std::string artstudent_enrolledsemester[5] = {"Fall", "Fall", "Fall", "Fall", "Fall"};
+	std::string artstudent_lastNames[5] = {"Martinez", "Johnson", "Whethers", "Tano", "Garcia"};
+	std::string artstudent_gradSemesters[5] = {"Spring", "Spring", "Spring", "Spring", "Spring"};
+	int artstudent_gradYears[5] = {2027, 2028, 2029, 2026, 2027};
+	std::string artstudent_enrolledSemester[5] = {"Fall", "Fall", "Fall", "Fall", "Fall"};
 	int artstudent_enrolledYear[5] = {2026, 2026, 2026, 2026, 2026};
 	std::string artstudent_status[5] = {"Grad", "Undergrad", "Undergrad", "Grad", "Grad"}; 
 
 	for (int i = 0; i < 5; i++){
-		art_students[i]->setFirstName(artstudent_firstnames[i]);
-		art_students[i]->
+		art_students[i]->setFirstName(artstudent_firstNames[i]);
+		art_students[i]->setLastName(artstudent_lastNames[i]);
+		art_students[i]->setGradYear(artstudent_gradYears[i]);
+		art_students[i]->setGPA(artstudent_gpa[i]);
+		art_students[i]->setGradSemester(artstudent_gradSemesters[i]);
+		art_students[i]->setEnrolledYear(artstudent_enrolledYear[i]);
+		art_students[i]->setEnrolledSemester(artstudent_enrolledSemester[i]);
+		art_students[i]->setStudentStatus(artstudent_status[i]);
+	}
 
+	//Assigning information to physics vector
+ 	std::string physicsstudent_firstNames[5] = {"Keo", "Alex", "Kenyatta", "Dani", "George"};
+	float physicsstudent_gpa[5] = {3.5, 3.9, 3.6, 3.9, 3.8};
+	std::string physicsstudent_lastNames[5] = {"Nguyen", "Gowin", "Frazier Jr", "Smith", "Miller"};
+	std::string physicsstudent_gradSemesters[5] = {"Fall", "Spring", "Spring", "Fall", "Spring"};
+	int physicsstudent_gradYears[5] = {2026, 2027, 2029, 2026, 2028};
+	std::string physicsstudent_enrolledSemester[5] = {"Fall", "Fall", "Fall", "Fall", "Fall"};
+	int physicsstudent_enrolledYear[5] = {2026, 2026, 2026, 2026, 2026};
+	std::string physicsstudent_status[5] = {"Grad", "Grad", "Undergrad", "Grad", "Undergrad"};
 
- /* 
-  .
-  .
-  outfile = open("student_info.dat",std::ios::write);
-  for(int i = 0; i < art_students.size(); i++)
-*/	
+	for (int i = 0; i < 5; i++){
+		physics_students[i]->setFirstName(physicsstudent_firstNames[i]);
+		physics_students[i]->setLastName(physicsstudent_lastNames[i]);
+		physics_students[i]->setGradYear(physicsstudent_gradYears[i]);
+		physics_students[i]->setGPA(physicsstudent_gpa[i]);
+		physics_students[i]->setGradSemester(physicsstudent_gradSemesters[i]);
+		physics_students[i]->setEnrolledYear(physicsstudent_enrolledYear[i]);
+		physics_students[i]->setEnrolledSemester(physicsstudent_enrolledSemester[i]);
+		physics_students[i]->setStudentStatus(physicsstudent_status[i]);
+	}
+	std::ofstream outfile;
+	outfile.open("student_info.dat",std::ios::out);
+	std::cout << "----------REPORT OF ALL STUDENTS----------\n" << std::endl;
+
+  	for(int i = 0; i < art_students.size(); i++){
+		outfile << art_students[i]->getFirstName() << " " << art_students[i]->setLastName << "\n" << std::endl;
+		outfile << "GPA: " << art_students[i]->getGPA() << ", Current Semester Enrolled: " << art_students[i]->getEnrolledSemester() << "Current Year Enrolled" <<  art_students[i]->getEnrolledYear() << "\n" << std::endl;
+		//outFile << "Graduating Year: " << 
+	}
+	outfile.close();
+
 	return 0;
 }
 
