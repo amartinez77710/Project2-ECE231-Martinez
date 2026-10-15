@@ -145,7 +145,7 @@ int main(){
 	}
 	std::ofstream outfile;
 	outfile.open("student_info.dat",std::ios::out);
-	std::cout << "----------REPORT OF ALL STUDENTS----------\n" << std::endl;
+	outfile << "----------REPORT OF ALL STUDENTS----------\n" << std::endl;
 
   	for(int i = 0; i < art_students.size(); i++){
 		outfile << art_students[i]->getFirstName() << " " << art_students[i]->getLastName() << std::endl;
