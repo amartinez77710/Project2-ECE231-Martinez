@@ -57,6 +57,8 @@ class Art_Student : public Student{
 		else
 			std::cout << "not valid emphasis for art student" << std::endl;
 	}
+	//Getter
+	std::string getArtEmphasis() const { return art_emphasis; }
 	void printInfo() {
 		Student::printInfo();
 		std::cout << "Major Emphasis : " << art_emphasis << std::endl;	
@@ -77,6 +79,8 @@ class Physics_Student : public Student{
 		else
 			std::cout << "not valid concentration for physics student" << std::endl;
 	}
+	//Getter for concentration
+	std::string getPhysicsConcentration() const { return physics_concentration; }
 	//print
 	void printInfo(){
 		Student::printInfo();
@@ -110,7 +114,9 @@ int main(){
 	int artstudent_gradYears[5] = {2027, 2028, 2029, 2026, 2027};
 	std::string artstudent_enrolledSemester[5] = {"Fall", "Fall", "Fall", "Fall", "Fall"};
 	int artstudent_enrolledYear[5] = {2026, 2026, 2026, 2026, 2026};
-	std::string artstudent_status[5] = {"Grad", "Undergrad", "Undergrad", "Grad", "Grad"}; 
+	std::string artstudent_status[5] = {"Grad", "Undergrad", "Undergrad", "Grad", "Grad"};
+	std::string emphasis[5] = {"Art Studio", "Art Studio", "Art Education", "Art Education", "Art History"};
+
 
 	for (int i = 0; i < 5; i++){
 		art_students[i]->setFirstName(artstudent_firstNames[i]);
@@ -121,6 +127,7 @@ int main(){
 		art_students[i]->setEnrolledYear(artstudent_enrolledYear[i]);
 		art_students[i]->setEnrolledSemester(artstudent_enrolledSemester[i]);
 		art_students[i]->setStudentStatus(artstudent_status[i]);
+		art_students[i]->setArtEmphasis(emphasis[i]);
 	}
 
 	//Assigning information to physics vector
@@ -132,6 +139,7 @@ int main(){
 	std::string physicsstudent_enrolledSemester[5] = {"Fall", "Fall", "Fall", "Fall", "Fall"};
 	int physicsstudent_enrolledYear[5] = {2026, 2026, 2026, 2026, 2026};
 	std::string physicsstudent_status[5] = {"Grad", "Grad", "Undergrad", "Grad", "Undergrad"};
+	std::string concentration[5] = {"Earth and Planetary Sciences", "Biophysics", "Astrophysics", "Applied", "Biophysics"};
 
 	for (int i = 0; i < 5; i++){
 		physics_students[i]->setFirstName(physicsstudent_firstNames[i]);
@@ -142,6 +150,7 @@ int main(){
 		physics_students[i]->setEnrolledYear(physicsstudent_enrolledYear[i]);
 		physics_students[i]->setEnrolledSemester(physicsstudent_enrolledSemester[i]);
 		physics_students[i]->setStudentStatus(physicsstudent_status[i]);
+		physics_students[i]->setPhysicsConcentration(concentration[i]);
 	}
 	std::ofstream outfile;
 	outfile.open("student_info.dat",std::ios::out);
@@ -153,6 +162,7 @@ int main(){
                 outfile << "GPA: " << art_students[i]->getGPA() << std::endl;
 		outfile << "Current Semester Enrolled: " << art_students[i]->getEnrolledSemester() << std::endl;
 		outfile << "Current Year Enrolled: " << art_students[i]->getEnrolledYear() << std::endl;
+		outfile << "Art Area: " << art_students[i]->getArtEmphasis() << std::endl;
 		outfile << "Currently a " << art_students[i]->getStudentStatus() << "." << std::endl;
 		outfile << "Expected Graduating Year: " << art_students[i]->getGradYear() << std::endl;
 		outfile << "Expected Grad Semester: " << art_students[i]->getGradSemester() << "\n" << std::endl;
