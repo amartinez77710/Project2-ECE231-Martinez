@@ -162,7 +162,7 @@ int main(){
                 outfile << "GPA: " << art_students[i]->getGPA() << std::endl;
 		outfile << "Current Semester Enrolled: " << art_students[i]->getEnrolledSemester() << std::endl;
 		outfile << "Current Year Enrolled: " << art_students[i]->getEnrolledYear() << std::endl;
-		outfile << "Art Area: " << art_students[i]->getArtEmphasis() << std::endl;
+		outfile << "Emphasis: " << art_students[i]->getArtEmphasis() << std::endl;
 		outfile << "Currently a " << art_students[i]->getStudentStatus() << "." << std::endl;
 		outfile << "Expected Graduating Year: " << art_students[i]->getGradYear() << std::endl;
 		outfile << "Expected Grad Semester: " << art_students[i]->getGradSemester() << "\n" << std::endl;
@@ -175,6 +175,7 @@ int main(){
 		outfile << "GPA: " << physics_students[i]->getGPA() << std::endl;
 		outfile << "Current Semester Enrolled: " << physics_students[i]->getEnrolledSemester() << std::endl;
 		outfile << "Current Year Enrolled: " <<  physics_students[i]->getEnrolledYear() << std::endl;
+		outfile << "Concentration: " << physics_students[i]->getPhysicsConcentration() << std::endl;
 		outfile << "Currently a " << physics_students[i]->getStudentStatus() << "." << std::endl;
                 outfile << "Expected Graduating Year: " << physics_students[i]->getGradYear() << std::endl;
                 outfile << "Expected Grad Semester: " << physics_students[i]->getGradSemester() << "\n" << std::endl;
