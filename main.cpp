@@ -20,7 +20,7 @@ class Student
 	void setFirstName(std::string fName) { firstName = fName; }
 	void setLastName(std::string lName) { lastName = lName; }
 	void setGradYear(int year) { gradYear = year; }
-	float setGPA(int tempgpa) { GPA = tempgpa; return GPA; }
+	float setGPA(float tempgpa) { GPA = tempgpa; return GPA; }
 	void setGradSemester(std::string Sem) { gradSemester = Sem; }
 	void setEnrolledYear(int enYear) { enrolledYear = enYear; }
 	void setEnrolledSemester(std::string enSem) { enrolledSemester = enSem; } 
@@ -156,7 +156,7 @@ int main(){
 
 	outfile << "\n-Physics Major Students-\n" << std::endl;
 	for(int i = 0; i < art_students.size(); i++){
-                outfile << physics_students[i]->getFirstName() << " " << physics_students[i]->getLastName() << std::endl;
+                outfile << "(" << physics_students[i]->getFirstName() << " " << physics_students[i]->getLastName() << ")" << std::endl;
 		outfile << "GPA: " << physics_students[i]->getGPA() << "\nCurrent Semester Enrolled: " << physics_students[i]->getEnrolledSemester() << "\nCurrent Year Enrolled: " <<  physics_students[i]->getEnrolledYear() << "\n" << std::endl;
 	}
 	outfile.close();
