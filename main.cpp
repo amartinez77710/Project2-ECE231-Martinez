@@ -20,11 +20,21 @@ class Student
 	void setFirstName(std::string fName) { firstName = fName; }
 	void setLastName(std::string lName) { lastName = lName; }
 	void setGradYear(int year) { gradYear = year; }
-	void setGPA(int tempgpa) { GPA = tempgpa; }
+	float setGPA(int tempgpa) { GPA = tempgpa; return GPA; }
 	void setGradSemester(std::string Sem) { gradSemester = Sem; }
 	void setEnrolledYear(int enYear) { enrolledYear = enYear; }
 	void setEnrolledSemester(std::string enSem) { enrolledSemester = enSem; } 
 	void setStudentStatus(std::string sStatus) { studentStatus = sStatus; } 
+
+	//Getters
+	std::string getFirstName() const { return firstName; }
+	std::string getLastName() const { return lastName; }
+	int getGradYear() const { return gradYear; }
+	float getGPA() const { return GPA; }
+	std::string getGradSemester() const { return gradSemester; }
+	int getEnrolledYear() const { return enrolledYear; }
+	std::string getEnrolledSemester() const { return enrolledSemester; }
+	std::string getStudentStatus() const { return studentStatus; }
 
 	//print
 	void printInfo() {
@@ -138,7 +148,7 @@ int main(){
 	std::cout << "----------REPORT OF ALL STUDENTS----------\n" << std::endl;
 
   	for(int i = 0; i < art_students.size(); i++){
-		outfile << art_students[i]->getFirstName() << " " << art_students[i]->setLastName << "\n" << std::endl;
+		outfile << art_students[i]->getFirstName() << " " << art_students[i]->getLastName() << "\n" << std::endl;
 		outfile << "GPA: " << art_students[i]->getGPA() << ", Current Semester Enrolled: " << art_students[i]->getEnrolledSemester() << "Current Year Enrolled" <<  art_students[i]->getEnrolledYear() << "\n" << std::endl;
 		//outFile << "Graduating Year: " << 
 	}
