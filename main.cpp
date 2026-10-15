@@ -150,14 +150,21 @@ int main(){
 
   	for(int i = 0; i < art_students.size(); i++){
 		outfile << "(" << art_students[i]->getFirstName() << " " << art_students[i]->getLastName() << ")" << std::endl;
-		outfile << "GPA: " << art_students[i]->getGPA() << "\nCurrent Semester Enrolled: " << art_students[i]->getEnrolledSemester() << "\nCurrent Year Enrolled: " <<  art_students[i]->getEnrolledYear() << "\n" << std::endl;
-		//outFile << "Graduating Year: " << 
+                outfile << "GPA: " << art_students[i]->getGPA() << std::endl;
+		outfile << "Current Semester Enrolled: " << art_students[i]->getEnrolledSemester() << std::endl;
+		outfile << "Current Year Enrolled: " << art_students[i]->getEnrolledYear() << std::endl;
+		outfile << "Currently a " << art_students[i]->getStudentStatus() << std::endl;
+		outfile << "Expected Graduating Year: " << art_students[i]->getGradYear() << std::endl;
+		outfile << "Expected Grad Semester: " << art_students[i]->getGradSemester() <<std::endl;
+
 	}
 
 	outfile << "\n-Physics Major Students-\n" << std::endl;
 	for(int i = 0; i < art_students.size(); i++){
                 outfile << "(" << physics_students[i]->getFirstName() << " " << physics_students[i]->getLastName() << ")" << std::endl;
-		outfile << "GPA: " << physics_students[i]->getGPA() << "\nCurrent Semester Enrolled: " << physics_students[i]->getEnrolledSemester() << "\nCurrent Year Enrolled: " <<  physics_students[i]->getEnrolledYear() << "\n" << std::endl;
+		outfile << "GPA: " << physics_students[i]->getGPA() << std::endl;
+		outfile << "Current Semester Enrolled: " << physics_students[i]->getEnrolledSemester() << std::endl;
+		outfile << "Current Year Enrolled: " <<  physics_students[i]->getEnrolledYear() << std::endl;
 	}
 	outfile.close();
 
