@@ -148,8 +148,8 @@ int main(){
 	std::cout << "----------REPORT OF ALL STUDENTS----------\n" << std::endl;
 
   	for(int i = 0; i < art_students.size(); i++){
-		outfile << art_students[i]->getFirstName() << " " << art_students[i]->getLastName() << "\n" << std::endl;
-		outfile << "GPA: " << art_students[i]->getGPA() << ", Current Semester Enrolled: " << art_students[i]->getEnrolledSemester() << "Current Year Enrolled" <<  art_students[i]->getEnrolledYear() << "\n" << std::endl;
+		outfile << art_students[i]->getFirstName() << " " << art_students[i]->getLastName() << std::endl;
+		outfile << "GPA: " << art_students[i]->getGPA() << ", Current Semester Enrolled: " << art_students[i]->getEnrolledSemester() << ", Current Year Enrolled: " <<  art_students[i]->getEnrolledYear() << "\n" << std::endl;
 		//outFile << "Graduating Year: " << 
 	}
 	outfile.close();
