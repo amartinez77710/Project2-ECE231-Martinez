@@ -146,7 +146,7 @@ int main(){
 	std::ofstream outfile;
 	outfile.open("student_info.dat",std::ios::out);
 	outfile << "----------REPORT OF ALL STUDENTS----------\n" << std::endl;
-	outfile << "Art Major Students\n" << std::endl;
+	outfile << "-Art Major Students-\n" << std::endl;
 
   	for(int i = 0; i < art_students.size(); i++){
 		outfile << "(" << art_students[i]->getFirstName() << " " << art_students[i]->getLastName() << ")" << std::endl;
@@ -154,9 +154,10 @@ int main(){
 		//outFile << "Graduating Year: " << 
 	}
 
-	outfile << "Physics Major Students\n" << std::endl;
+	outfile << "\n-Physics Major Students-\n" << std::endl;
 	for(int i = 0; i < art_students.size(); i++){
                 outfile << physics_students[i]->getFirstName() << " " << physics_students[i]->getLastName() << std::endl;
+		outfile << "GPA: " << physics_students[i]->getGPA() << "\nCurrent Semester Enrolled: " << physics_students[i]->getEnrolledSemester() << "\nCurrent Year Enrolled: " <<  physics_students[i]->getEnrolledYear() << "\n" << std::endl;
 	}
 	outfile.close();
 
