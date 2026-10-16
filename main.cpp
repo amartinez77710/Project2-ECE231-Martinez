@@ -177,7 +177,7 @@ int main(){
 	}
 	outfile.close();
 
-	//Thank you. Made by Adrian Martinez
+	//Thank you. Made by Adrian Martinez.
 
 	return 0;
 }
