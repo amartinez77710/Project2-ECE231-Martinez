@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <fstream>
+
+//Parent Class Student
 class Student
 {
 	std::string firstName;
@@ -35,15 +37,10 @@ class Student
 	int getEnrolledYear() const { return enrolledYear; }
 	std::string getEnrolledSemester() const { return enrolledSemester; }
 	std::string getStudentStatus() const { return studentStatus; }
-
-	//print
-	void printInfo() {
-		std::cout << "\nName: " << firstName << " " << lastName << "\nGraduation Year and Semester: " << gradYear << " " << gradSemester << "\nEnrolled Year and Semester: " << enrolledYear << " " << enrolledSemester << "\nStudent Status: " << studentStatus << std::endl;
-
-	}
 };
-
+//Derived Class for Art Students
 class Art_Student : public Student{
+	
 	//Emphasis derive
 	std::string art_emphasis;
 	
@@ -59,14 +56,12 @@ class Art_Student : public Student{
 	}
 	//Getter
 	std::string getArtEmphasis() const { return art_emphasis; }
-	void printInfo() {
-		Student::printInfo();
-		std::cout << "Major Emphasis : " << art_emphasis << std::endl;	
-	}
 };
 
+//Derived Class for Physics Students
 class Physics_Student : public Student{
-	//Emphasis derive
+	
+	//Concentration 
 	std::string physics_concentration;
 
 	public:
@@ -81,11 +76,6 @@ class Physics_Student : public Student{
 	}
 	//Getter for concentration
 	std::string getPhysicsConcentration() const { return physics_concentration; }
-	//print
-	void printInfo(){
-		Student::printInfo();
-		std::cout << "Concentration: " << physics_concentration << std::endl;
-	}
 };
 
 
@@ -117,7 +107,7 @@ int main(){
 	std::string artstudent_status[5] = {"Grad", "Undergrad", "Undergrad", "Grad", "Grad"};
 	std::string emphasis[5] = {"Art Studio", "Art Studio", "Art Education", "Art Education", "Art History"};
 
-
+	//Setting vector values 
 	for (int i = 0; i < 5; i++){
 		art_students[i]->setFirstName(artstudent_firstNames[i]);
 		art_students[i]->setLastName(artstudent_lastNames[i]);
@@ -141,6 +131,7 @@ int main(){
 	std::string physicsstudent_status[5] = {"Grad", "Grad", "Undergrad", "Grad", "Undergrad"};
 	std::string concentration[5] = {"Earth and Planetary Sciences", "Biophysics", "Astrophysics", "Applied", "Biophysics"};
 
+	//Setting vector values
 	for (int i = 0; i < 5; i++){
 		physics_students[i]->setFirstName(physicsstudent_firstNames[i]);
 		physics_students[i]->setLastName(physicsstudent_lastNames[i]);
@@ -152,6 +143,10 @@ int main(){
 		physics_students[i]->setStudentStatus(physicsstudent_status[i]);
 		physics_students[i]->setPhysicsConcentration(concentration[i]);
 	}
+
+	//Writing out data with <fstream>
+	//Contains what I want printed for the file
+	//This will use Getters
 	std::ofstream outfile;
 	outfile.open("student_info.dat",std::ios::out);
 	outfile << "----------REPORT OF ALL STUDENTS----------\n" << std::endl;
@@ -181,6 +176,8 @@ int main(){
                 outfile << "Expected Grad Semester: " << physics_students[i]->getGradSemester() << "\n" << std::endl;
 	}
 	outfile.close();
+
+	//Thank you. Made by Adrian Martinez
 
 	return 0;
 }
